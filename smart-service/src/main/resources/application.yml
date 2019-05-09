@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: dashboard-service
+  datasource:
+    url: jdbc:h2:file:~/chaos-smart
+    username: chaos
+    password: chaos123
+    driverClassName: org.h2.Driver
+    jpa:
+      hibernate:
+        ddl-auto: update
+
+server:
+  port: 8092
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+chaos:
+  monkey:
+    enabled: true
+    assaults:
+      level: 7
+      latencyRangeStart: 1000
+      latencyRangeEnd: 10000
+      exceptionsActive: false
+      killApplicationActive: true
+    watcher:
+      repository: true
+      restController: true
+      
+management:
+  endpoint:
+    chaosmonkey:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info,chaosmonkey
