@@ -8,52 +8,46 @@ import javax.persistence.Id;
 @Entity
 public class SmartTransaction {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String name;
-	private int count;
-	private int price;
-	private ProductCategory category;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-	public Integer getId() {
-		return id;
-	}
+    private Integer transaction;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    private Integer customer;
 
-	public String getName() {
-		return name;
-	}
+    private String clazz;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public int getCount() {
-		return count;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setCount(int count) {
-		this.count = count;
-	}
+    public Integer getTransaction() {
+        return transaction;
+    }
 
-	public int getPrice() {
-		return price;
-	}
+    public void setTransaction(Integer transaction) {
+        this.transaction = transaction;
+    }
 
-	public void setPrice(int price) {
-		this.price = price;
-	}
+    public Integer getCustomer() {
+        return customer;
+    }
 
-	public ProductCategory getCategory() {
-		return category;
-	}
+    public void setCustomer(Integer customer) {
+        this.customer = customer;
+    }
 
-	public void setCategory(ProductCategory category) {
-		this.category = category;
-	}
+    public String getClazz() {
+        return clazz;
+    }
+
+    public void setClazz(String clazz) {
+        this.clazz = clazz;
+    }
 
 }

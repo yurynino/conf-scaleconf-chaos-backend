@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SmartTransactionRepository extends CrudRepository<SmartTransaction, Integer> {
 
-	List<SmartTransaction> findByName(String name);
+	List<SmartTransaction> findByCustomer(Integer customer);
 	
 }

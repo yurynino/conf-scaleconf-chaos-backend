@@ -1,6 +1,8 @@
 package co.scaleconf.services.smart.controller;
 
 import co.scaleconf.services.smart.model.SmartTransaction;
+import co.scaleconf.services.smart.repository.SmartTransactionRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.scaleconf.services.smart.repository.SmartTransactionRepository;
-
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/smart")
 public class SmartController {
 
 	@Autowired
@@ -29,9 +29,9 @@ public class SmartController {
 		return repository.save(product);
 	}
 	
-	@GetMapping("/{id}")
-	public SmartTransaction findById(@PathVariable("id") Integer id) {
-		return repository.findById(id).get();
+	@GetMapping("/transactions/{customer}")
+	public List<SmartTransaction> findByCustomer(@PathVariable("customer") Integer customer) {
+		return repository.findByCustomer(customer);
 	}
 	
 	@GetMapping
