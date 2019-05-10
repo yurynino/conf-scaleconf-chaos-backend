@@ -1,7 +1,12 @@
 package co.scaleconf.services.dashboard.model;
 
-import javax.persistence.*;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "dashboard")
@@ -11,8 +16,12 @@ public class Dashboard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer customerId;
+    private Integer customer;
 
+    @Transient
+    private List<Transaction> transactions;
+
+    @Transient
     private List<SmartTransaction> smartTransactions;
 
     public Integer getId() {
@@ -23,19 +32,29 @@ public class Dashboard {
         this.id = id;
     }
 
-    public Integer getCustomerId() {
-        return customerId;
+    public Integer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Integer customer) {
+        this.customer = customer;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(
+        List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 
     public List<SmartTransaction> getSmartTransactions() {
         return smartTransactions;
     }
 
-    public void setSmartTransactions(List<SmartTransaction> smartTransactions) {
+    public void setSmartTransactions(
+        List<SmartTransaction> smartTransactions) {
         this.smartTransactions = smartTransactions;
     }
 

@@ -12,7 +12,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
+    private String reference;
 
     private Double value;
 
@@ -26,12 +26,12 @@ public class Transaction {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getReference() {
+        return reference;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 
     public Double getValue() {

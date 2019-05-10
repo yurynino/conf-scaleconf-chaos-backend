@@ -4,19 +4,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "smart_transaction")
 public class SmartTransaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer transaction;
+    private String clazz;
+
+    private Double percentage;
 
     private Integer customer;
-
-    private String clazz;
 
     public Integer getId() {
         return id;
@@ -26,12 +28,20 @@ public class SmartTransaction {
         this.id = id;
     }
 
-    public Integer getTransaction() {
-        return transaction;
+    public String getClazz() {
+        return clazz;
     }
 
-    public void setTransaction(Integer transaction) {
-        this.transaction = transaction;
+    public void setClazz(String clazz) {
+        this.clazz = clazz;
+    }
+
+    public Double getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(Double percentage) {
+        this.percentage = percentage;
     }
 
     public Integer getCustomer() {
@@ -40,14 +50,6 @@ public class SmartTransaction {
 
     public void setCustomer(Integer customer) {
         this.customer = customer;
-    }
-
-    public String getClazz() {
-        return clazz;
-    }
-
-    public void setClazz(String clazz) {
-        this.clazz = clazz;
     }
 
 }

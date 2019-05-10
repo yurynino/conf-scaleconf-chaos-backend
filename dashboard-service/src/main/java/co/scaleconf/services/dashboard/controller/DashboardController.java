@@ -18,8 +18,8 @@ public class DashboardController {
     @Autowired
     SmartTransactionClient smartTransactionClient;
 
-    @GetMapping("/{id}")
-    public Dashboard getDashboard(@PathVariable("customerId") Integer customerId) {
+    @GetMapping("/{customer}")
+    public Dashboard getDashboard(@PathVariable("customer") Integer customer) {
         Dashboard dashboard = new Dashboard();
         return dashboard;
     }
