@@ -1,8 +1,13 @@
 apply plugin: 'java-library'
 apply plugin: 'scala'
 
+repositories {
+   jcenter()
+   mavenCentral()
+}
+
 dependencies {
-    testCompile group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '2.3.0'
+    compile group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '2.3.0'
 }
 
 task loadTest(type: JavaExec) {
@@ -15,7 +20,7 @@ task loadTest(type: JavaExec) {
    ]
    main = "io.gatling.app.Gatling"
    args = [
-           "--simulation", "pl.piomin.services.gatling.ApiGatlingSimulationTest",
+           "--simulation", "co.scaleconf.services.gatling.ApiGatlingSimulationTest",
            "--results-folder", "${buildDir}/gatling-results",
            "--binaries-folder", sourceSets.test.output.classesDir.toString(),
            "--bodies-folder", sourceSets.test.resources.srcDirs.toList().first().toString() + "/gatling/bodies",

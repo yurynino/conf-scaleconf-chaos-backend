@@ -1,4 +1,4 @@
-package pl.piomin.services.gatling
+package co.scaleconf.services.gatling
 
 import io.gatling.core.scenario.Simulation
 import io.gatling.core.Predef._
@@ -11,14 +11,14 @@ import scala.util.Random
 
 class ApiGatlingSimulationTest extends Simulation {
 
-  val scn = scenario("AddAndFindSmartTransactions").repeat(500, "n") {
+  val scn = scenario("FindSmartTransactions").repeat(100, "n") {
         exec(
           http("GetSmartTransactions-API")
-            .get("http://localhost:8090/smart-service/smart-transactions")
+            .get("http://localhost:8091/dashboard/123")
             .check(status.is(200))
         )   
   }
   
-  setUp(scn.inject(atOnceUsers(20))).maxDuration(FiniteDuration.apply(10, "minutes"))
+  setUp(scn.inject(atOnceUsers(20))).maxDuration(FiniteDuration.apply(1, "minutes"))
   
 }
