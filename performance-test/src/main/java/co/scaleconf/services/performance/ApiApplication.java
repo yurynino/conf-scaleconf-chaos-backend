@@ -1,4 +1,4 @@
-package pl.piomin.services.performance;
+package co.scaleconf.services.performance;
 
 public class ApiApplication {
 

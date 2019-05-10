@@ -40,13 +40,17 @@ chaos:
   monkey:
     enabled: true
     assaults:
-      level: 8
-      latencyRangeStart: 1000
-      latencyRangeEnd: 10000
-      exceptionsActive: false
+      level: 9
+      latencyRangeStart: 1000000
+      latencyRangeEnd: 10000000
+      exceptionsActive: true
       killApplicationActive: true
     watcher:
       repository: true
+      controller: true
+      restController: true
+      service: true
+      component: true
       
 management:
   endpoint:
