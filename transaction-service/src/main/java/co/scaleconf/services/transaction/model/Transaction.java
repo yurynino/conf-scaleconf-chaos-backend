@@ -16,6 +16,8 @@ public class Transaction {
 
     private Double value;
 
+    private Integer customer;
+
     public Integer getId() {
         return id;
     }
@@ -38,6 +40,14 @@ public class Transaction {
 
     public void setValue(Double value) {
         this.value = value;
+    }
+
+    public Integer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Integer customer) {
+        this.customer = customer;
     }
 
 }
